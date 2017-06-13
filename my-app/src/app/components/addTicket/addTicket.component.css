@@ -1,6 +1,8 @@
-input:valid {
-  background-color: green;
-}
-input:not(:valid) {
-  background-color: red;
+form {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  box-shadow: 0 0 10px 10px rgba(0,0,0, 0.3);
+  padding: 10px;
 }

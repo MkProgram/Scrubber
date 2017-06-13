@@ -18,13 +18,13 @@ export default class AddTicketComponent implements OnInit {
   public description: string;
 
   constructor() {
-    this.name = "";
-    this.description = "";
   }
 
   public scbOnDone = new EventEmitter<ITicket>(false);
 
   ngOnInit() {
+    this.name = "";
+    this.description = "";
   }
 
   addTicket(form: NgForm) {
@@ -32,6 +32,7 @@ export default class AddTicketComponent implements OnInit {
       name: form.value["name"],
       description: form.value["description"]
     });
+    this.ngOnInit();
   }
 
 }
