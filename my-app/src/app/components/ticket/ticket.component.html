@@ -1,4 +1,4 @@
-<div (click)="unfold()" class="ticket-div">
+<div (click)="unfold()" class="ticket-div" [@myAnimation]="clicked">
   <h4>{{scbTicketHeadline}}</h4>
   <p class="ticket-p" *ngIf="clicked" [@myAnimation]="clicked">
     {{scbTicketDescription}}
