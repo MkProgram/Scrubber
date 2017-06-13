@@ -1,0 +1,22 @@
+{
+  "name": "scrubber",
+  "version": "1.0.0",
+  "description": "Scrumboard Project für die Schule",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MkProgram/Scrubber.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MkProgram/Scrubber/issues"
+  },
+  "homepage": "https://github.com/MkProgram/Scrubber#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
