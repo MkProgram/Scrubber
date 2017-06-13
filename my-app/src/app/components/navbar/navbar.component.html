@@ -1,3 +1,11 @@
-<p>
-  navbar works!
-</p>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li (click)="navClicked($event)" class="active">
+        <a href="#">IT-Systeme</a>
+      </li>
+      <li (click)="navClicked($event)"><a href="#">Fachenglisch</a></li>
+      <li (click)="navClicked($event)"><a href="#">Anwendungsentwicklung</a></li>
+    </ul>
+  </div>
+</nav>
