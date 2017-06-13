@@ -1,0 +1,18 @@
+<form class="container grid-4" #form="ngForm">
+  <label class="row">
+    <span>Name:</span>
+    <input name="name" [(ngModel)]="name" required />
+  </label>
+  <label class="row">
+    <span>Beschreibung:</span>
+    <input name="description" [(ngModel)]="description" required />
+  </label>
+  <div class="row">
+    <button [disabled]="!form.valid" (click)="addTicket(form)" name="confirm">Hinzuf&uuml;gen</button>
+  </div>
+  <div class="logger">
+    <div>{{name}}</div>
+    <div>{{description}}</div>
+    <div>{{form.form.valid}}</div>
+  </div>
+</form>

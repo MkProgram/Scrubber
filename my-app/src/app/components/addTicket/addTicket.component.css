@@ -1,0 +1,6 @@
+input:valid {
+  background-color: green;
+}
+input:not(:valid) {
+  background-color: red;
+}
