@@ -4,9 +4,13 @@
   top: 10px;
   right: 15px;
   cursor: pointer;
-  margin: 10px;
 }
 
 .ticket {
   position: relative;
+  margin: 10px;
+}
+
+.title {
+  padding: 4px;
 }
