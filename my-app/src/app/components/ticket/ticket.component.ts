@@ -5,7 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
-  inputs: ["scbTicketHeadline", "scbTicketDescription"],
+  inputs: ["scbTicketModel"],
   outputs: ['scbOnRemove'],
   styleUrls: ['./ticket.component.css'],
   animations: [
@@ -35,15 +35,21 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 export class TicketComponent implements OnInit {
 
   public clicked: boolean;
-  public scbTicketHeadline: string;
-  public scbTicketDescription: string;
+  public scbTicketModel: {
+    title: string;
+    description: string;
+    id: string;
+    priority: number;
+  };
   public displayDescription: string;
   public scbOnRemove = new EventEmitter();
 
   constructor() {
     this.clicked = false;
-    this.scbTicketHeadline = this.scbTicketHeadline || "Ich bin ein Titel";
-    this.scbTicketDescription = this.scbTicketDescription || "Ich bin eine Beschreibung";
+    this.scbTicketModel.title = this.scbTicketModel.title || "Ich bin ein Titel";
+    this.scbTicketModel.description = this.scbTicketModel.description || "Ich bin eine Beschreibung";
+    this.scbTicketModel.id = this.scbTicketModel.id || "xxxxxx";
+    this.scbTicketModel.priority = this.scbTicketModel.priority || 1;
   }
 
   ngOnInit() {
@@ -58,6 +64,6 @@ export class TicketComponent implements OnInit {
   }
 
   remove() {
-    this.scbOnRemove.emit();
+    this.scbOnRemove.emit(this.scbTicketModel.id);
   }
 }
