@@ -5,7 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
-  inputs: ["scbTicketHeadline", "scbTicketDescription"],
+  inputs: ["scbTicketModel"],
   outputs: ['scbOnRemove'],
   styleUrls: ['./ticket.component.css'],
   animations: [
