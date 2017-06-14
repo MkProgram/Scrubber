@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-xs-12">
-      <app-ticket *ngFor="let ticket of tickets" [scbTicketHeadline]="ticket.name" [scbTicketDescription]="ticket.description"></app-ticket>
+      <app-ticket *ngFor="let ticket of tickets" [scbTicketModel]="ticket" (scbOnRemove)="removeTicket($event)"></app-ticket>
     </div>
     <div class="col-md-4 col-xs-12">
       <scbAddTicket (scbOnDone)="tickets.push($event)"></scbAddTicket>
