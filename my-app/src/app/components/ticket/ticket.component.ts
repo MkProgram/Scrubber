@@ -46,13 +46,14 @@ export class TicketComponent implements OnInit {
 
   constructor() {
     this.clicked = false;
-    this.scbTicketModel.title = this.scbTicketModel.title || "Ich bin ein Titel";
-    this.scbTicketModel.description = this.scbTicketModel.description || "Ich bin eine Beschreibung";
-    this.scbTicketModel.id = this.scbTicketModel.id || "xxxxxx";
-    this.scbTicketModel.priority = this.scbTicketModel.priority || 1;
   }
 
   ngOnInit() {
+    this.scbTicketModel.title = this.scbTicketModel.title || "Ich bin ein Titel";
+    console.log(this.scbTicketModel.title);
+    this.scbTicketModel.description = this.scbTicketModel.description || "Ich bin eine Beschreibung";
+    this.scbTicketModel.id = this.scbTicketModel.id || "xxxxxx";
+    this.scbTicketModel.priority = this.scbTicketModel.priority || 1;
   }
 
   unfold() {

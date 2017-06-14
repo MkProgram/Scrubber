@@ -1,9 +1,9 @@
 <div (click)="unfold()" class="panel panel-info ticket" [@myAnimation]="clicked">
   <div class="panel-heading">
       <div (click)="remove()" class="ticket-close glyphicon glyphicon-remove"></div>
-    <h4>{{scbTicketHeadline}}</h4>
+    <h4>{{scbTicketModel.title}}</h4>
   </div>
   <p class="panel-body" *ngIf="clicked" [@myAnimation]="clicked">
-    {{scbTicketDescription}}
+    {{scbTicketModel.description}}
   </p>
 </div>
