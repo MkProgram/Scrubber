@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule, trigger, transition, style, animate, state } from '@angular/core';
+import { Component, OnInit, NgModule, trigger, transition, style, animate, state, EventEmitter } from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -6,6 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
   inputs: ["scbTicketHeadline", "scbTicketDescription"],
+  outputs: ['scbOnRemove'],
   styleUrls: ['./ticket.component.css'],
   animations: [
     trigger(
@@ -37,6 +38,7 @@ export class TicketComponent implements OnInit {
   public scbTicketHeadline: string;
   public scbTicketDescription: string;
   public displayDescription: string;
+  public scbOnRemove = new EventEmitter();
 
   constructor() {
     this.clicked = false;
@@ -56,6 +58,6 @@ export class TicketComponent implements OnInit {
   }
 
   remove() {
-    
+    this.scbOnRemove.emit();
   }
 }
