@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewChecked } from '@angular/core';
 import { ITicket } from './components/addTicket/addTicket.component';
 
 @Component({
@@ -9,7 +9,7 @@ import { ITicket } from './components/addTicket/addTicket.component';
 
 export class AppComponent {
   title = 'app';
-  tickets:Array<ITicket> = [];
+  tickets: Array<ITicket> = [];
 
   removeTicket(uuid:string) {
     const ticketIndex = this.tickets.findIndex((ticket)=>ticket.id===uuid);

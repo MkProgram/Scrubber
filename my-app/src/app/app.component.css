@@ -1,9 +1,13 @@
 @media (min-width: 768px) {
   .container {
-    height: calc(100% - 70px);
+    height: calc(100% - 10px);
     position: relative;
-    top: 70px;
+    top: 10px;
     }
+}
+
+.ticket {
+  min-width: 50%;
 }
 
 .ticketContainer {

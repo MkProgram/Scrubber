@@ -2,10 +2,15 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-xs-12 ticketContainer">
-      <app-ticket *ngFor="let ticket of tickets" [scbTicketModel]="ticket" (scbOnRemove)="removeTicket($event)"></app-ticket>
+      <app-ticket class="ticket" *ngFor="let ticket of tickets" [scbTicketModel]="ticket" (scbOnRemove)="removeTicket($event)"></app-ticket>
     </div>
     <div class="col-md-4 col-xs-12">
-      <scbAddTicket (scbOnDone)="tickets.push($event)"></scbAddTicket>
+      <div class="panel panel-default">
+        <div class="panel-heading">Ticket hinzuf&uuml;gen</div>
+        <div class="panel-content">
+          <scbAddTicket (scbOnDone)="tickets.push($event)"></scbAddTicket>
+        </div>
+      </div>
     </div>
   </div>
 </div>
