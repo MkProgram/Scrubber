@@ -50,6 +50,7 @@ describe('AddTicketComponent', () => {
 
         component.name = "Foo";
         component.description = "Bar";
+        component.id = "12345678-1234-1234-1234-123456789012";
         fixture.detectChanges();
 
         await fixture.whenStable();
@@ -64,6 +65,7 @@ describe('AddTicketComponent', () => {
         expect(ticket).toEqual({
           name: "Foo",
           description: "Bar"
+          id: "12345678-1234-1234-1234-123456789012"
         });
         done();
       } catch (e) {
