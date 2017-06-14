@@ -1,15 +1,23 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-static-top">
   <div class="container">
-    <ul class="nav navbar-nav">
-      <li (click)="navClicked($event)" class="active"><a href="#">IT-Systeme</a></li>
-      <li (click)="navClicked($event)"><a href="#">Fachenglisch</a></li>
-      <li (click)="navClicked($event)"><a href="#">Anwendungsentwicklung</a></li>
-    </ul>
-
-    <form class="navbar-form navbar-right">
-
-      <input class="form-control" type="text" placeholder="Ticket-ID">
-      <a href="#" class="btn btn-default">Sign In</a>
-    </form>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navBar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navBar">
+      <ul class="nav navbar-nav">
+        <li (click)="navClicked($event)" class="active"><a href="#">IT-Systeme</a></li>
+        <li (click)="navClicked($event)"><a href="#">Fachenglisch</a></li>
+        <li (click)="navClicked($event)"><a href="#">Anwendungsentwicklung</a></li>
+      </ul>
+      <form class="navbar-form navbar-right">
+        <input class="form-control" type="text" placeholder="Ticket-ID">
+        <a href="#" class="btn btn-default">Sign In</a>
+      </form>
+    </div>
   </div>
 </nav>
