@@ -1,6 +1,6 @@
 <form class="pad-md" #form="ngForm">
   <div class="form-group" [class.has-error]="!nameField.valid">
-    <label class="control-label" for="newticketname">Name:</label>
+    <label class="control-label" for="newticketname">Titel:</label>
     <input type="text" class="form-control" id="newticketname" #nameField="ngModel" name="name" [(ngModel)]="name" required />
   </div>
   <div class="form-group" [class.has-error]="!descriptionField.valid">
