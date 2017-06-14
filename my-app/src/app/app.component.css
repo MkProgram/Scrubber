@@ -1,1 +1,14 @@
-.container { padding-top: 70px; }
+@media (min-width: 320px) {
+  .container {
+    height: calc(100% - 230px);
+    position: relative;
+    top: 230px;
+    }
+}
+@media (min-width: 479px) {
+  .container {
+    height: calc(100% - 70px);
+    position: relative;
+    top: 70px;
+    }
+}
