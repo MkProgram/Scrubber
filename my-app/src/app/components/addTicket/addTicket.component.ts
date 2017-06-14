@@ -3,9 +3,10 @@ import {NgForm} from "@angular/forms";
 import {v4} from "uuid";
 
 export interface ITicket {
-  name: string;
+  title: string;
   description: string;
   id: string;
+  priority: number;
 }
 
 @Component({
@@ -33,9 +34,10 @@ export default class AddTicketComponent implements OnInit {
 
   addTicket(form: NgForm) {
     this.scbOnDone.emit({
-      name: form.value["name"],
+      title: form.value["name"],
       description: form.value["description"],
-      id: form.value["id"]
+      id: form.value["id"],
+      priority: form.value["priority"]
     });
     this.ngOnInit();
   }
