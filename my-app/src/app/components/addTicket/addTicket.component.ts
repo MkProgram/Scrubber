@@ -20,6 +20,7 @@ export default class AddTicketComponent implements OnInit {
   public name: string;
   public description: string;
   public id: string;
+  public priority: number;
 
   constructor() {
   }
@@ -30,6 +31,7 @@ export default class AddTicketComponent implements OnInit {
     this.name = "";
     this.description = "";
     this.id = v4();
+    this.priority = 1;
   }
 
   addTicket(form: NgForm) {
