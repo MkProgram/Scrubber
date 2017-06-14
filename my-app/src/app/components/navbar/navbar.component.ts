@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
   navClicked(ev){
+    ev.preventDefault();
     const oElm = ev.currentTarget;
     $('li.active').removeClass('active');
     $(oElm).addClass('active');
