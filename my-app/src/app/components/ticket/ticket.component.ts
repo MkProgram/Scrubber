@@ -36,7 +36,7 @@ export class TicketComponent implements OnInit {
 
   public clicked: boolean;
   public scbTicketModel: {
-    headline: string;
+    title: string;
     description: string;
     id: string;
     priority: number;
@@ -46,7 +46,7 @@ export class TicketComponent implements OnInit {
 
   constructor() {
     this.clicked = false;
-    this.scbTicketModel.headline = this.scbTicketModel.headline || "Ich bin ein Titel";
+    this.scbTicketModel.title = this.scbTicketModel.title || "Ich bin ein Titel";
     this.scbTicketModel.description = this.scbTicketModel.description || "Ich bin eine Beschreibung";
     this.scbTicketModel.id = this.scbTicketModel.id || "xxxxxx";
     this.scbTicketModel.priority = this.scbTicketModel.priority || 1;
