@@ -1,0 +1,11 @@
+<form class="pad-md" #form="ngForm">
+  <div class="form-group" [class.has-error]="!nameField.valid">
+    <label class="control-label" for="newticketname">Name:</label>
+    <input type="text" class="form-control" id="newticketname" #nameField="ngModel" name="name" [(ngModel)]="name" required />
+  </div>
+  <div class="form-group" [class.has-error]="!descriptionField.valid">
+    <label class="control-label" for="newticketdescription">Beschreibung:</label>
+    <input type="text" class="form-control" id="newticketdescription" #descriptionField="ngModel" name="description" [(ngModel)]="description" />
+  </div>
+  <button class="btn btn-default" [disabled]="!form.valid" (click)="addTicket(form)" name="confirm">Hinzuf&uuml;gen</button>
+</form>
