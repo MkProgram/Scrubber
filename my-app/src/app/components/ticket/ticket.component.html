@@ -1,4 +1,5 @@
 <div (click)="unfold()" class="ticket-div" [@myAnimation]="clicked">
+  <div (click)="remove()" class="ticket-close glyphicon glyphicon-remove"></div>
   <h4>{{scbTicketHeadline}}</h4>
   <p class="ticket-p" *ngIf="clicked" [@myAnimation]="clicked">
     {{scbTicketDescription}}
