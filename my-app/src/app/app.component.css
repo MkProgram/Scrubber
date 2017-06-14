@@ -5,3 +5,9 @@
     top: 70px;
     }
 }
+
+.ticketContainer {
+  padding: 10px;
+  display: flex;
+  flex-flow:wrap;
+}
