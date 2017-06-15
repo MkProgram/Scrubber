@@ -9,5 +9,11 @@
     <label class="control-label" for="newticketdescription">Beschreibung:</label>
     <input type="text" class="form-control" id="newticketdescription" #descriptionField="ngModel" name="description" [(ngModel)]="description" />
   </div>
+  <div class="form-group" [class.has-error]="!priorityField.valid">
+    <label class="control-label" for="newticketpriority">Priorit&auml;t:</label>
+    <select id="newticketpriority" class="form-control">
+      <option *ngFor="let priority of priorities" [ngValue]="priority">{{priority.displayValue}}</option>
+    </select>
+  </div>
   <button class="btn btn-default" [disabled]="!form.valid" (click)="addTicket(form)" name="confirm">Hinzuf&uuml;gen</button>
 </form>

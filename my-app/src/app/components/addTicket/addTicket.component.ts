@@ -7,7 +7,22 @@ export interface ITicket {
   description: string;
   id: string;
   priority: number;
+  user: string;
 }
+
+export const TicketPriorities = [{
+  value: 0,
+  displayValue: "Niedrig"
+}, {
+  value: 1,
+  displayValue: "Mittel"
+}, {
+  value: 2,
+  displayValue: "Hoch",
+}, {
+  value: 3,
+  displayValue: "Dringend"
+}];
 
 @Component({
   selector: 'scbAddTicket',
@@ -21,6 +36,7 @@ export default class AddTicketComponent implements OnInit {
   public description: string;
   public id: string;
   public priority: number;
+  public priorities = TicketPriorities;
 
   constructor() {
   }
@@ -31,7 +47,7 @@ export default class AddTicketComponent implements OnInit {
     this.name = "";
     this.description = "";
     this.id = v4();
-    this.priority = 1;
+    this.priority = TicketPriority.MEDIUM;
   }
 
   addTicket(form: NgForm) {
@@ -39,7 +55,8 @@ export default class AddTicketComponent implements OnInit {
       title: form.value["name"],
       description: form.value["description"],
       id: form.value["id"],
-      priority: form.value["priority"]
+      priority: form.value["priority"],
+      user: "00000000-0000-0000-0000-000000000000"
     });
     this.ngOnInit();
   }

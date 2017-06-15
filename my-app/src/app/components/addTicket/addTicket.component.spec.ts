@@ -64,8 +64,8 @@ describe('AddTicketComponent', () => {
         //noinspection JSUnusedAssignment
         expect(ticket).toEqual({
           name: "Foo",
-          description: "Bar"
-          id: "12345678-1234-1234-1234-123456789012"
+          description: "Bar",
+          id: "12345678-1234-1234-1234-123456789012",
         });
         done();
       } catch (e) {
