@@ -1,28 +1,16 @@
 import {Component, EventEmitter, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {v4} from "uuid";
+import PrioritiesProvider, {IPriority} from "../../injectables/priorities/priorities.service";
 
 export interface ITicket {
   title: string;
   description: string;
   id: string;
-  priority: number;
+  priority: string;
   user: string;
+  private: boolean;
 }
-
-export const TicketPriorities = [{
-  value: 0,
-  displayValue: "Niedrig"
-}, {
-  value: 1,
-  displayValue: "Mittel"
-}, {
-  value: 2,
-  displayValue: "Hoch",
-}, {
-  value: 3,
-  displayValue: "Dringend"
-}];
 
 @Component({
   selector: 'scbAddTicket',
@@ -35,29 +23,35 @@ export default class AddTicketComponent implements OnInit {
   public name: string;
   public description: string;
   public id: string;
-  public priority: number;
-  public priorities = TicketPriorities;
+  public priority: IPriority;
+  public visibility: string;
+  public prioritiesService: PrioritiesProvider;
 
-  constructor() {
+  constructor(prioritiesService: PrioritiesProvider) {
+    this.prioritiesService = prioritiesService;
   }
 
   public scbOnDone = new EventEmitter<ITicket>(false);
 
-  ngOnInit() {
+  public ngOnInit() {
     this.name = "";
     this.description = "";
     this.id = v4();
-    this.priority = TicketPriority.MEDIUM;
+    this.priority = this.prioritiesService.priorities.find(priority => priority.value === "MEDIUM");
+    this.visibility = "public";
   }
 
-  addTicket(form: NgForm) {
-    this.scbOnDone.emit({
+  public addTicket(form: NgForm) {
+    const ticket = {
       title: form.value["name"],
       description: form.value["description"],
       id: form.value["id"],
-      priority: form.value["priority"],
-      user: "00000000-0000-0000-0000-000000000000"
-    });
+      priority: form.value["priority"].id,
+      user: "00000000-0000-0000-0000-000000000000",
+      private: form.value["visibility"] === "private"
+    };
+    console.log(ticket);
+    this.scbOnDone.emit(ticket);
     this.ngOnInit();
   }
 

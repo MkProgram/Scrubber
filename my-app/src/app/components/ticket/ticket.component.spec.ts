@@ -31,7 +31,7 @@ describe('TicketComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('should expand when clicked', (done) => {
+  it('should expand when clicked', (done) => {
     (async () => {
       let p = fixture.debugElement.query(By.css('p'));
       expect(p).toBeFalsy();

@@ -1,6 +1,5 @@
-<form class="pad-md" #form="ngForm">
+<form class="pad-md" #form="ngForm" (ngSubmit)="addTicket(form)">
   <input type="hidden" [(ngModel)]="id" name="id" required/>
-  <input type="hidden" [(ngModel)]="priority" name="priority" required/>
   <div class="form-group" [class.has-error]="!nameField.valid">
     <label class="control-label" for="newticketname">Titel:</label>
     <input type="text" class="form-control" id="newticketname" #nameField="ngModel" name="name" [(ngModel)]="name" required />
@@ -11,9 +10,20 @@
   </div>
   <div class="form-group" [class.has-error]="!priorityField.valid">
     <label class="control-label" for="newticketpriority">Priorit&auml;t:</label>
-    <select id="newticketpriority" class="form-control">
-      <option *ngFor="let priority of priorities" [ngValue]="priority">{{priority.displayValue}}</option>
+    <select id="newticketpriority" class="form-control" #priorityField="ngModel" [(ngModel)]="priority" name="priority" required [style.color]="priority.value === &quot;LOW&quot; ? &quot;white&quot; : priority.value === &quot;MEDIUM&quot; ? &quot;black&quot; : priority.value === &quot;HIGH&quot; ? &quot;black&quot; : &quot;white&quot;" [style.backgroundColor]="priority.value === &quot;LOW&quot; ? &quot;green&quot; : priority.value === &quot;MEDIUM&quot; ? &quot;white&quot; : priority.value === &quot;HIGH&quot; ? &quot;yellow&quot; : &quot;red&quot;">
+      <option *ngFor="let priority of prioritiesService.priorities" [ngValue]="priority" [style.color]="priority.value === &quot;LOW&quot; ? &quot;white&quot; : priority.value === &quot;MEDIUM&quot; ? &quot;black&quot; : priority.value === &quot;HIGH&quot; ? &quot;black&quot; : &quot;white&quot;" [style.backgroundColor]="priority.value === &quot;LOW&quot; ? &quot;green&quot; : priority.value === &quot;MEDIUM&quot; ? &quot;white&quot; : priority.value === &quot;HIGH&quot; ? &quot;yellow&quot; : &quot;red&quot;">{{priority.displayValue}}</option>
     </select>
   </div>
-  <button class="btn btn-default" [disabled]="!form.valid" (click)="addTicket(form)" name="confirm">Hinzuf&uuml;gen</button>
+  <div class="form-group">
+    <legend>Sichtbarkeit</legend>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" name="visibility" id="newticketvisibilitypublic" [(ngModel)]="visibility" value="public"/>
+      <label for="newticketvisibilitypublic">&Ouml;ffentlich</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" name="visibility" id="newticketvisibilityprivate" [(ngModel)]="visibility" value="private"/>
+      <label for="newticketvisibilityprivate">Privat</label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-default" [attr.disabled]="form.valid ? null : &quot;disabled&quot;" name="confirm">Hinzuf&uuml;gen</button>
 </form>

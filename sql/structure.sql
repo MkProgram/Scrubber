@@ -32,7 +32,8 @@ CREATE TABLE "tickets" (
 
 CREATE TABLE "priorities" (
     "id"            UUID    PRIMARY KEY,
-    "displayValue"  VARCHAR NOT NULL
+    "displayValue"  VARCHAR NOT NULL,
+    "value"         VARCHAR NOT NULL
 );
 
 ALTER TABLE "boards" ADD CONSTRAINT "boardsBelongToUsers" FOREIGN KEY ("owner") REFERENCES "users" ("id");

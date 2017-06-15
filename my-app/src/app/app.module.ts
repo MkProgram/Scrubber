@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import AddTicketComponent from "./components/addTicket/addTicket.component";
+import PrioritiesProvider from "./injectables/priorities/priorities.service";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,10 @@ import AddTicketComponent from "./components/addTicket/addTicket.component";
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{
+    provide: PrioritiesProvider,
+    useClass: PrioritiesProvider
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
