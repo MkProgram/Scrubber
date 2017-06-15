@@ -8,4 +8,10 @@
 
 .ticket {
   position: relative;
+  margin: 10px;
+  margin-top: 0px;
+}
+
+.title {
+  padding: 4px;
 }
