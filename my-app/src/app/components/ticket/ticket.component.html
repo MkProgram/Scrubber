@@ -1,7 +1,10 @@
-<div (click)="unfold()" class="panel panel-info ticket" [@myAnimation]="clicked">
+<div (click)="scbTicketModel.description &amp;&amp; unfold()" class="panel ticket" [class.panel-danger]="scbTicketModel.priority===getPriority(&quot;URGENT&quot;).id"
+[class.panel-warning]="scbTicketModel.priority===getPriority(&quot;HIGH&quot;).id"
+[class.panel-success]="scbTicketModel.priority===getPriority(&quot;LOW&quot;).id"
+[class.panel-info]="scbTicketModel.priority===getPriority(&quot;MEDIUM&quot;).id" [@myAnimation]="clicked">
   <div class="panel-heading">
     <div (click)="remove()" class="ticket-close glyphicon glyphicon-remove"></div>
-    <h4 class="title">{{scbTicketModel.title}}</h4>
+    <h4 class="title">Ben Utzer: {{scbTicketModel.title}}</h4>
   </div>
   <p class="panel-body" *ngIf="clicked" [@myAnimation]="clicked">
     {{scbTicketModel.description}}

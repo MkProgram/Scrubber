@@ -1,6 +1,7 @@
 import { Component, OnInit, NgModule, trigger, transition, style, animate, state, EventEmitter } from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import PrioritiesProvider from '../../injectables/priorities/priorities.service';
 
 @Component({
   selector: 'app-ticket',
@@ -22,7 +23,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         ':leave', [
           style({transform: 'translateY(0)', 'opacity': 1}),
           animate('500ms', style({transform: 'translateY(5%)', opacity: 0})
-
       )]
     )
   ])]
@@ -43,15 +43,21 @@ export class TicketComponent implements OnInit {
   };
   public displayDescription: string;
   public scbOnRemove = new EventEmitter();
+  public prioritiesProvider: PrioritiesProvider;
 
-  constructor() {
+  constructor(priorities: PrioritiesProvider) {
     this.clicked = false;
+    this.prioritiesProvider = priorities;
+  }
+
+  getPriority(value: string) {
+    return this.prioritiesProvider.priorities.find(priority => priority.value === value);
   }
 
   ngOnInit() {
     this.scbTicketModel.title = this.scbTicketModel.title || "Ich bin ein Titel";
     console.log(this.scbTicketModel.title);
-    this.scbTicketModel.description = this.scbTicketModel.description || "Ich bin eine Beschreibung";
+    this.scbTicketModel.description = this.scbTicketModel.description;
     this.scbTicketModel.id = this.scbTicketModel.id || "xxxxxx";
     this.scbTicketModel.priority = this.scbTicketModel.priority || 1;
   }
